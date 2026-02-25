@@ -1,0 +1,752 @@
+/* =========================================
+   1. 基本設定（リセット・ベース）
+   ========================================= */
+html {
+    scroll-behavior: smooth;    /* リンククリック時にスルスル移動させる */
+    scroll-padding-top: 80px;   /* 固定ヘッダーに隠れないよう停止位置を下げる */
+}
+
+* {
+    margin: 0;                  /* ブラウザ固有の外側余白をリセット */
+    padding: 0;                 /* ブラウザ固有の内側余白をリセット */
+    box-sizing: border-box;     /* paddingや線をサイズに含める計算方法に固定 */
+}
+
+body {
+    background-color: #111;     /* サイト全体の背景色（濃いグレー） */
+    color: #fff;                /* サイト全体の文字色（白） */
+    font-family: 'Noto Sans JP', sans-serif; /* 日本語用の標準フォント */
+    line-height: 1.6;           /* 行間（読みやすさの調整） */
+}
+
+a {
+    text-decoration: none;      /* リンクの下線を消す */
+    color: inherit;             /* リンクの色を文字色と同じにする */
+}
+
+img {
+    max-width: 100%;            /* 親要素からはみ出さないようにする */
+    display: block;             /* 画像の下にできる隙間を消す */
+}
+
+/* =========================================
+   2. 共通パーツ（コンテナ・ボタン）
+   ========================================= */
+.container {
+    max-width: 1200px;          /* コンテンツの最大幅 */
+    margin: 0 auto;             /* 左右中央に配置 */
+    padding: 0 4%;              /* スマホ表示時の左右の余白 */
+}
+
+/* 英語ロゴ・見出し共通フォント */
+.logo, .hero-text h2, .btn-main, .concept-text span, .section-title span {
+    font-family: 'Montserrat', sans-serif; /* カッコいい英字用フォント */
+    text-transform: uppercase;             /* 小文字を自動で大文字に変換 */
+}
+
+/* =========================================
+   3. ヘッダー (Header)
+   ========================================= */
+header {
+    background-color: rgba(0, 0, 0, 0.8); /* 背景（少し透ける黒） */
+    height: 80px;               /* ヘッダーの高さ */
+    position: fixed;            /* 画面上部に固定 */
+    width: 100%;                /* 横幅いっぱい */
+    top: 0;                     /* 上端に配置 */
+    z-index: 100;               /* 他の要素より上に表示 */
+    display: flex;              /* 中身を並べる準備 */
+    align-items: center;        /* 中身を上下中央に配置 */
+}
+
+header .container {
+    display: flex;              /* ロゴとメニューを並べる */
+    justify-content: space-between; /* 両端に広げて配置 */
+    align-items: center;        /* 上下中央 */
+    width: 100%;
+}
+
+.logo {
+    font-size: 1.5rem;          /* 文字の大きさ */
+    font-weight: 900;           /* 文字の太さ（最大） */
+    letter-spacing: 2px;        /* 文字の間隔 */
+}
+
+.logo a {
+    color: inherit;             /* 文字色を親に合わせる */
+    text-decoration: none;      /* 下線を消す */
+    display: block;             /* クリック範囲を広げる */
+}
+
+.logo span {
+    color: #d4af37;             /* FITの部分だけゴールドにする */
+}
+
+nav ul {
+    display: flex;              /* メニューを横に並べる */
+    list-style: none;           /* 点（●）を消す */
+    align-items: center;
+}
+
+nav ul li {
+    margin-left: 30px;          /* メニュー同士の間隔 */
+}
+
+nav ul li a:hover {
+    color: #d4af37;             /* マウスを乗せた時の色（ゴールド） */
+    transition: 0.3s;           /* 色の変化にかける時間 */
+}
+
+.btn-small {
+    background-color: #d4af37;  /* 背景色（ゴールド） */
+    color: #000 !important;     /* 文字色（黒） */
+    padding: 10px 20px;         /* 内側の余白（ボタンサイズ） */
+    border-radius: 4px;         /* 角を少し丸める */
+    font-weight: bold;          /* 太字 */
+}
+
+/* =========================================
+   4. メインビジュアル (Hero)
+   ========================================= */
+.hero {
+    height: 100vh;              /* 画面の高さいっぱい表示 */
+    background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.7)), /* 画像を少し暗くする */
+                url('https://images.unsplash.com/photo-1540497077202-7c8a3999166f?q=80&w=2070&auto=format&fit=crop');
+    background-size: cover;     /* 画像を隙間なく表示 */
+    background-position: center;/* 画像の中心を表示 */
+    display: flex;              /* テキストを中央に置く準備 */
+    justify-content: center;    /* 左右中央 */
+    align-items: center;        /* 上下中央 */
+    text-align: center;         /* 文字を中央揃え */
+}
+
+.hero-text h2 {
+    font-size: clamp(2.5rem, 8vw, 4.5rem); /* スマホ〜PCまで自動でサイズ調整 */
+    font-weight: 900;
+    letter-spacing: 4px;
+    margin-bottom: 10px;        /* 下との隙間 */
+}
+
+.hero-text p {
+    font-size: 1.2rem;
+    margin-bottom: 40px;
+    color: #ccc;                /* 少しグレーっぽい白 */
+}
+
+.btn-main {
+    display: inline-block;      /* リンクにサイズを持たせる */
+    border: 1px solid #fff;     /* 白い枠線 */
+    padding: 15px 50px;         /* ボタンの大きさ */
+    font-weight: 900;
+    transition: 0.5s;           /* 変化の時間 */
+}
+
+.btn-main:hover {
+    background-color: #fff;     /* ホバーで白背景に */
+    color: #000;                /* ホバーで黒文字に */
+}
+
+/* =========================================
+   5. コンセプトセクション (Concept)
+   ========================================= */
+.concept {
+    padding: 30px 0;            /* 上下の余白（指示通り詰め気味） */
+    background-color: #000;     /* 背景（真っ黒） */
+}
+
+.concept-flex {
+    display: flex;              /* 画像と文章を横に並べる */
+    align-items: center;        /* 上下中央揃え */
+    gap: 80px;                  /* 横の隙間 */
+}
+
+.concept-image {
+    flex: 0.8;                  /* 画像側の幅の比率 */
+    position: relative;
+}
+
+.concept-image img {
+    width: 100%;
+    height: 350px;              /* 画像の高さを固定 */
+    object-fit: cover;          /* サイズに合わせて画像を切り抜く */
+    filter: grayscale(30%);     /* 少しモノクロにする（高級感） */
+}
+
+.concept-text {
+    flex: 1.2;                  /* 文章側の幅の比率 */
+}
+
+.concept-text span {
+    color: #d4af37;             /* サブタイトル色 */
+    font-size: 0.9rem;
+    font-weight: bold;
+    letter-spacing: 3px;
+    display: block;             /* 改行させる */
+    margin-bottom: 15px;
+}
+
+.concept-text h2 {
+    font-size: 2.2rem;
+    line-height: 1.4;
+    margin-bottom: 30px;
+}
+
+.concept-text p {
+    font-size: 1rem;
+    color: #ccc;
+    line-height: 2;             /* 行間を広げて読みやすく */
+    margin-bottom: 40px;
+}
+
+.btn-outline {
+    display: inline-block;
+    border: 1px solid #d4af37;  /* ゴールドの枠線 */
+    color: #d4af37;             /* ゴールドの文字 */
+    padding: 12px 35px;
+    font-size: 0.9rem;
+    font-weight: bold;
+    letter-spacing: 1px;
+    transition: 0.3s;
+}
+
+.btn-outline:hover {
+    background-color: #d4af37;  /* 塗りつぶし */
+    color: #000;
+}
+
+/* =========================================
+   6. 特徴セクション (Features)
+   ========================================= */
+.features {
+    padding: 30px 0;            /* 上下の余白（指示通り詰め気味） */
+}
+
+.section-title {
+    text-align: center;         /* セクションタイトルを中央に */
+    margin-bottom: 30px;        /* 下との隙間 */
+}
+
+.section-title span {
+    color: #d4af37;
+    font-size: 0.9rem;
+    font-weight: bold;
+    letter-spacing: 2px;
+}
+
+.section-title h2 {
+    font-size: 2rem;
+    margin-top: 0px;
+}
+
+.feature-grid {
+    display: flex;              /* 特徴を横に3つ並べる */
+    gap: 30px;                  /* 隙間 */
+}
+
+.feature-item {
+    position: relative;         /* 前後の黒フィルターの基準にする */
+    flex: 1;                    /* 同じ幅にする */
+    padding: 60px 40px;         /* 中の余白 */
+    text-align: center;
+    overflow: hidden;           /* はみ出しを隠す */
+    background-size: cover;
+    background-position: center;
+    transition: 0.5s;
+}
+
+.feature-item::before {
+    content: "";
+    position: absolute;
+    top: 0; left: 0; width: 100%; height: 100%;
+    background: rgba(0, 0, 0, 0.6); /* 画像を暗くするフィルター */
+    z-index: 1;                 /* 背面に配置 */
+    transition: 0.5s;
+}
+
+.feature-item > * {
+    position: relative;         /* フィルターより手前に表示させる */
+    z-index: 2;
+}
+
+.feature-item:nth-child(1) { background-image: url('https://images.unsplash.com/photo-1534438327276-14e5300c3a48?q=80&w=1000&auto=format&fit=crop'); }
+.feature-item:nth-child(2) { background-image: url('https://images.unsplash.com/photo-1540497077202-7c8a3999166f?q=80&w=1000&auto=format&fit=crop'); }
+.feature-item:nth-child(3) { background-image: url('https://images.unsplash.com/photo-1571902943202-507ec2618e8f?q=80&w=1000&auto=format&fit=crop'); }
+
+.feature-item:hover {
+    transform: translateY(-10px); /* ホバーで上に10px動かす */
+}
+
+.feature-item:hover::before {
+    background: rgba(212, 175, 55, 0.4); /* ホバーで色がゴールドに透ける */
+}
+
+.feature-item .num {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 3rem;            /* 数字を大きく表示 */
+    font-weight: 900;
+    color: #d4af37;
+    margin-bottom: 20px;
+}
+
+.feature-item h3 {
+    font-size: 1.4rem;
+    margin-bottom: 15px;
+    letter-spacing: 1px;
+}
+
+.feature-item p {
+    font-size: 0.9rem;
+    color: #eee;
+    line-height: 1.8;
+}
+
+/* =========================================
+   7. サービスセクション (Services)
+   ========================================= */
+.services {
+    padding: 30px 0;            /* 上下の余白 */
+    position: relative;
+    overflow: hidden;
+    background-color: #111;
+    background-image: url('https://images.unsplash.com/photo-1534438327276-14e5300c3a48?q=80&w=2070&auto=format&fit=crop');
+    background-size: cover;
+    background-position: center;
+    background-attachment: scroll; 
+}
+
+.services::before {
+    content: "";
+    position: absolute;
+    top: 0; left: 0; width: 100%; height: 100%;
+    background: rgba(0, 0, 0, 0.75); /* 背景画像をしっかり暗くする */
+    z-index: 1;
+}
+
+.services .container {
+    position: relative;
+    z-index: 2;                 /* テキストをフィルターの前に出す */
+}
+
+.service-grid {
+    display: grid;              /* グリッドレイアウト */
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* 300px以上で並べて、入らなくなったら自動改行 */
+    gap: 30px;                  /* カード同士の間隔 */
+}
+
+.service-card {
+    background: rgba(255, 255, 255, 0.05); /* うっすら透ける白 */
+    padding: 50px 30px;
+    border: 1px solid rgba(255, 255, 255, 0.1); /* 枠線も薄く透ける */
+    backdrop-filter: blur(10px);           /* すりガラス風のぼかし */
+    -webkit-backdrop-filter: blur(10px);   /* Safari用 */
+    text-align: center;
+    transition: all 0.4s ease;
+}
+
+.service-card:hover {
+    border-color: #d4af37;      /* ホバーで枠をゴールドに */
+    background: rgba(212, 175, 55, 0.1); /* 背景も薄くゴールドに */
+    transform: translateY(-8px);/* 少し上に浮かす */
+}
+
+.service-icon {
+    font-size: 3rem;            /* 絵文字アイコンを大きく */
+    margin-bottom: 25px;
+    display: block;
+}
+
+.service-card h3 {
+    font-size: 1.3rem;
+    color: #d4af37;
+    margin-bottom: 15px;
+    letter-spacing: 1px;
+}
+
+.service-card p {
+    font-size: 0.95rem;
+    color: #ddd;
+    line-height: 1.7;
+}
+
+/* =========================================
+   8. 料金セクション (Price)
+   ========================================= */
+.price {
+    padding: 30px 0;            /* 上下の余白 */
+    background-color: #000;
+}
+
+.price-grid {
+    display: flex;              /* 料金プランを横に並べる */
+    justify-content: center;
+    align-items: stretch;       /* 高さを揃える */
+    gap: 20px;
+}
+
+.price-card {
+    background: #1a1a1a;        /* カードの背景 */
+    padding: 40px 30px;
+    flex: 1;                    /* 同じ幅に広げる */
+    text-align: center;
+    border: 1px solid #333;
+    position: relative;
+    transition: 0.3s;
+}
+
+/* おすすめプランを強調 */
+.price-card.highlight {
+    border: 2px solid #d4af37;  /* 枠を太くゴールドに */
+    background: #111;
+    transform: scale(1.05);     /* 他より少し大きく表示 */
+    z-index: 1;                 /* 前面に表示 */
+}
+
+.recommend-tag {
+    position: absolute;         /* カードの上に乗せる */
+    top: -15px;                 /* カードより上に突き出させる */
+    left: 50%;
+    transform: translateX(-50%);/* 自分の幅の半分戻して真ん中に */
+    background: #d4af37;        /* タグの色（ゴールド） */
+    color: #000;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.75rem;
+    font-weight: 900;
+    padding: 4px 15px;
+    letter-spacing: 1px;
+}
+
+.price-card h3 {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1.2rem;
+    letter-spacing: 2px;
+    color: #d4af37;
+    margin-bottom: 25px;
+}
+
+.price-info {
+    margin-bottom: 25px;
+}
+
+.price-info .label {
+    font-size: 0.9rem;
+    margin-bottom: 10px;
+}
+
+.price-value {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 2.8rem;          /* 金額を大きく */
+    font-weight: 900;
+    margin-bottom: 5px;
+}
+
+.price-value span {
+    font-size: 1rem;
+    font-weight: normal;
+}
+
+.price-info .note {
+    font-size: 0.75rem;
+    color: #888;
+}
+
+/* サービス詳細リスト */
+.price-features {
+    list-style: none;
+    text-align: left;           /* チェック項目は左寄せ */
+    display: inline-block;
+    border-top: 1px solid #333; /* 上に区切り線 */
+    padding-top: 25px;
+    width: 100%;
+}
+
+.price-features li {
+    font-size: 0.85rem;
+    margin-bottom: 12px;
+    color: #ccc;
+}
+
+.price-features li::before {
+    content: "✓";               /* チェックマークを追加 */
+    color: #d4af37;
+    margin-right: 10px;
+    font-weight: bold;
+}
+
+/* =========================================
+   9. フッター (Footer)
+   ========================================= */
+footer {
+    background-color: #000;
+    padding: 60px 0 20px;       /* 下は少し狭く */
+    border-top: 1px solid #222; /* サイト全体の区切り線 */
+}
+
+.footer-content {
+    display: flex;              /* フッター内を並べる */
+    justify-content: space-between;
+    gap: 50px;
+    margin-bottom: 50px;
+}
+
+.footer-left {
+    flex: 1;
+}
+
+.footer-left .logo {
+    margin-bottom: 20px;
+}
+
+.footer-left p {
+    font-size: 0.85rem;
+    color: #888;
+    line-height: 1.8;
+    margin-bottom: 25px;
+    max-width: 350px;           /* 文章が広がりすぎないように固定 */
+}
+
+.social-links {
+    display: flex;              /* アイコンを並べる */
+    gap: 15px;                  /* アイコンの間隔 */
+}
+
+.social-links a {
+    width: 40px;
+    height: 40px;
+    background: #1a1a1a;        /* アイコンの背景 */
+    display: flex;
+    justify-content: center;    /* アイコンを真ん中に配置 */
+    align-items: center;
+    border-radius: 50%;         /* 丸にする */
+    transition: 0.3s;
+    color: #fff;
+    font-size: 1.2rem;          /* アイコンのサイズ */
+}
+
+/* 各SNSのホバー設定 */
+.social-links a:hover {
+    background: #d4af37;        /* 標準のホバー（ゴールド） */
+    color: #000;
+}
+
+.social-links a[aria-label="Instagram"]:hover {
+    background: radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 5%, #fd5949 45%, #d6249f 60%, #285aeb 90%); /* インスタカラー */
+    color: #fff;
+}
+
+.social-links a[aria-label="X"].active {
+    background: #000;
+    border: 1px solid #d4af37; /* 枠線をゴールドに */
+    color: #d4af37;            /* アイコン（文字）をゴールドに */
+}
+
+.social-links a[aria-label="YouTube"]:hover {
+    background: #ff0000;        /* YouTubeは赤 */
+    color: #fff;
+}
+
+.social-links a[aria-label="LINE"]:hover {
+    background: #06c755;        /* LINEは緑 */
+    color: #fff;
+}
+
+.footer-right {
+    display: flex;              /* メニューと住所を並べる */
+    gap: 60px;
+}
+
+.footer-nav h4, .footer-info h4 {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.9rem;
+    letter-spacing: 2px;
+    color: #d4af37;
+    margin-bottom: 20px;
+}
+
+.footer-nav ul {
+    list-style: none;
+}
+
+.footer-nav ul li {
+    margin-bottom: 10px;
+}
+
+.footer-nav ul li a {
+    font-size: 0.8rem;
+    color: #888;
+    transition: 0.3s;
+}
+
+.footer-nav ul li a:hover {
+    color: #fff;
+    padding-left: 5px;           /* ホバーで少し横にずらす演出 */
+}
+
+.footer-info p {
+    font-size: 0.8rem;
+    color: #888;
+    line-height: 1.8;
+}
+
+.footer-info .tel {
+    margin-top: 15px;
+    font-weight: bold;
+    color: #fff;
+    font-size: 1rem;
+}
+
+.footer-bottom {
+    border-top: 1px solid #1a1a1a;
+    padding-top: 20px;
+    text-align: center;         /* コピーライトを中央に */
+}
+
+.footer-bottom p {
+    font-size: 0.7rem;
+    color: #555;
+    letter-spacing: 1px;
+}
+
+/* =========================================
+   10. レスポンシブ対応 (Media Queries)
+   ========================================= */
+
+/* --- タブレット・スマホ向け (1024px以下) --- */
+@media screen and (max-width: 1024px) {
+    .concept-flex {
+        gap: 40px;              /* コンセプトの画像と文の間隔を狭く */
+    }
+    
+    .feature-grid {
+        flex-wrap: wrap;        /* 特徴セクションを折り返し可能に */
+    }
+
+    .feature-item {
+        flex: 1 1 calc(50% - 30px); /* 2カラム（2つ並び）に変更 */
+    }
+}
+
+/* --- スマホ向け (768px以下) --- */
+@media screen and (max-width: 768px) {
+    /* ヘッダー */
+    header {
+        height: 60px;           /* ヘッダーを少し細く */
+    }
+    html {
+        scroll-padding-top: 60px; /* スクロール位置もヘッダーに合わせて調整 */
+    }
+    
+    nav {
+        display: none;          /* 通常のナビは非表示（本来はハンバーガーメニュー等にする） */
+    }
+
+    /* コンセプト */
+    .concept-flex {
+        flex-direction: column; /* 画像と文章を縦並びに */
+        text-align: center;
+        gap: 30px;
+    }
+
+    .concept-image {
+        width: 100%;
+        order: 2;               /* スマホでは文章を先に読ませるために順番を調整 */
+    }
+
+    .concept-text {
+        width: 100%;
+        order: 1;
+    }
+
+    /* 特徴・料金 */
+    .feature-grid, .price-grid {
+        flex-direction: column; /* 縦一列に並べる */
+    }
+
+    .feature-item, .price-card {
+        width: 100%;
+    }
+
+    .price-card.highlight {
+        transform: scale(1);    /* スマホでは拡大を解除してはみ出し防止 */
+        margin: 10px 0;
+    }
+
+    /* フッター */
+    .footer-content {
+        flex-direction: column;
+        text-align: center;
+        gap: 40px;
+    }
+
+    .footer-left p {
+        margin: 20px auto;      /* 説明文を中央寄せ */
+    }
+
+    .social-links {
+        justify-content: center; /* アイコンを中央に */
+    }
+
+    .footer-right {
+        flex-direction: column; /* フッターメニューも縦並びに */
+        gap: 30px;
+    }
+}
+
+/* --- 小さなスマホ向け (480px以下) --- */
+@media screen and (max-width: 480px) {
+    .hero-text h2 {
+        font-size: 2.2rem;      /* タイトルがはみ出さないよう調整 */
+    }
+
+    .section-title h2 {
+        font-size: 1.6rem;      /* セクションタイトルも調整 */
+    }
+
+    .concept-text h2 {
+        font-size: 1.5rem;
+    }
+
+    .btn-main, .btn-outline {
+        width: 100%;            /* ボタンを押しやすく横いっぱいに */
+        padding: 15px 0;
+    }
+}
+
+/* =========================================
+   10. レスポンシブ対応 (Media Queries)
+   ========================================= */
+
+/* --- スマホ向け (768px以下) --- */
+@media screen and (max-width: 768px) {
+    /* ...中略（レイアウト設定はそのまま）... */
+
+    /* コンセプトの文字をスマホで少し小さく */
+    .concept-text h2 {
+        font-size: 1.6rem;      /* 2.2remからサイズダウン */
+        margin-bottom: 20px;
+    }
+    .concept-text p {
+        font-size: 0.9rem;       /* 1remからサイズダウン */
+        line-height: 1.7;
+    }
+}
+
+/* --- 小さなスマホ向け (480px以下) --- */
+@media screen and (max-width: 480px) {
+    /* ヒーローテキストをさらにコンパクトに */
+    .hero-text h2 {
+        font-size: 1.8rem;      /* 画面からはみ出さないスッキリしたサイズ */
+        letter-spacing: 2px;    /* 文字間隔も少し詰め気味に */
+    }
+    .hero-text p {
+        font-size: 1rem;
+    }
+
+    /* コンセプトの見出しをさらに調整 */
+    .concept-text h2 {
+        font-size: 1.2rem;
+    }
+
+    /* セクション全体の見出しもバランスを合わせる */
+    .section-title h2 {
+        font-size: 1.5rem;
+    }
+}

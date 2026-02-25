@@ -1,0 +1,330 @@
+/* =========================================
+   1. 基本設定（リセット・ベース）
+   全体の土台となるルールを決めます
+   ========================================= */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  overflow-x: hidden;
+  font-family: "Helvetica Neue", Arial, "Hiragino Kaku Gothic ProN", "Hiragino Sans", Meiryo, sans-serif;
+  line-height: 1.6;
+  color: #111;                /* ★黒を濃く */
+  background-color: #ffffff;  /* ★完全白ベース */
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+ul {
+  list-style: none;
+}
+
+img {
+  max-width: 100%;
+  vertical-align: bottom;
+}
+
+/* =========================================
+   2. 共通パーツ（タイトル・ボタン）
+   ========================================= */
+.section-title {
+  text-align: center;
+  font-size: 32px;
+  margin-bottom: 50px;
+  text-transform: uppercase;
+  color: #111; /* ★黒 */
+}
+
+/* お問い合わせなどのボタン共通設定 */
+.submit-btn {
+  display: block;
+  width: 100%;
+  padding: 18px;
+  background-color: #ff7a00; /* ★オレンジを少し締める */
+  color: #ffffff;
+  border: none;
+  border-radius: 6px;
+  font-size: 18px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.submit-btn:hover {
+  background-color: #111; /* ★ホバーで黒 */
+  color: #ffffff;
+}
+
+/* =========================================
+   3. ヘッダー
+   ========================================= */
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 50px;
+  background-color: #ffffff; /* ★白に変更 */
+  color: #111;               /* ★黒文字 */
+  height: 70px;
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  z-index: 1000;
+  border-bottom: 1px solid #eee; /* ★薄い境界線 */
+}
+
+.nav-list {
+  display: flex;
+}
+
+.nav-list li {
+  margin-left: 20px;
+}
+
+.nav-list a:hover {
+  color: #ff7a00; /* ★リンクはオレンジ */
+}
+
+/* =========================================
+4. メインビジュアル（白背景・営業特化）
+========================================= */
+
+.main-visual {
+  background: #ffffff;
+  width: 100%;
+  height: 55vh;              /* 少し引き締め */
+  min-height: 420px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  color: #111;
+  margin-top: 70px;
+  padding: 0 20px;
+}
+
+.main-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  max-width: 800px;          /* 横に広がりすぎないよう制限 */
+}
+
+.main-content h2 {
+  font-size: clamp(28px, 4.5vw, 48px);
+  font-weight: 800;          /* 少し強く */
+  line-height: 1.4;
+  margin-bottom: 18px;       /* 微調整 */
+}
+
+.main-content p {
+  font-size: clamp(16px, 2vw, 20px);
+  line-height: 1.8;
+  color: #555;
+  margin-bottom: 25px;       /* ★ここが重要：ボタンとの自然な距離 */
+}
+
+.hero-achievement a {
+  color: #111;
+  font-weight: 600;
+  border-bottom: 1px solid #ff7a00;
+  transition: 0.2s;
+}
+
+.hero-achievement a:hover {
+  color: #ff7a00;
+}
+
+/* =========================================
+   ヒーローCTA
+========================================= */
+
+.main-buttons {
+  margin-top: 0;             /* pで距離を作るので不要 */
+}
+
+.cta-primary {
+  display: inline-block;
+  padding: 16px 40px;
+  background-color: #ff7a00;
+  color: #ffffff;
+  font-size: 16px;
+  font-weight: 700;
+  border-radius: 50px;
+  transition: all 0.3s ease;
+  box-shadow: 0 8px 20px rgba(255,122,0,0.25); /* 少し浮かせる */
+}
+
+.cta-primary:hover {
+  background-color: #111;
+  transform: translateY(-3px);
+  box-shadow: 0 12px 25px rgba(0,0,0,0.2);
+}
+
+/* =========================================
+   5. 個別セクション
+   ========================================= */
+/* About */
+.about-section {
+  padding: 100px 20px;
+  background-color: #f9f9f9; /* ★薄グレー */
+}
+
+.about-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 60px;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.about-image {
+  flex-shrink: 0;
+}
+
+.about-image img {
+  width: 250px;
+  height: 250px;
+  border-radius: 50%;
+  object-fit: cover;
+  display: block;
+}
+
+/* Works */
+.works-section {
+  padding: 100px 20px;
+  background-color: #ffffff; /* ★白 */
+}
+
+.works-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 30px;
+  justify-content: center;
+}
+
+.work-card {
+  width: 300px;
+  background: #ffffff;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.08); /* ★影を弱める */
+  transition: 0.3s;
+  border: 1px solid #eee;
+}
+
+.work-card img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  border-bottom: 1px solid #eee;
+}
+
+.work-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 25px rgba(0,0,0,0.12);
+}
+
+.work-info {
+  padding: 15px;
+}
+
+.work-info p {
+  font-size: 13px;
+  color: #555;
+  line-height: 1.5;
+  margin-top: 10px;
+  text-align: justify;
+}
+
+/* Contact */
+.contact-section {
+  padding: 100px 20px;
+  background-color: #f9f9f9; /* ★薄グレー */
+}
+
+.contact-container {
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.contact-lead {
+  text-align: center;
+  max-width: 600px;
+  margin: 0 auto 40px;
+  line-height: 1.8;
+}
+
+.form-item {
+  margin-bottom: 25px;
+}
+
+.form-item label {
+  display: block;
+  margin-bottom: 8px;
+  font-weight: bold;
+  color: #111;
+}
+
+input, textarea {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  font-size: 16px;
+}
+
+input:focus, textarea:focus {
+  outline: none;
+  border-color: #ff7a00; /* ★フォーカスでオレンジ */
+}
+
+/* =========================================
+   6. フッター
+   ========================================= */
+footer {
+  background-color: #111; /* ★黒 */
+  color: #ffffff;
+  text-align: center;
+  padding: 40px 0;
+}
+
+/* =========================================
+   7. レスポンシブ
+   ========================================= */
+@media (max-width: 768px) {
+  .header {
+    flex-direction: column;
+    height: auto;
+    padding: 10px 0;
+  }
+
+  .nav-list li {
+    margin: 0 10px;
+  }
+
+  .main-visual {
+    margin-top: 100px;
+    height: 300px;
+  }
+
+  .main-content h2 {
+    font-size: 24px;
+  }
+
+  .about-container {
+    flex-direction: column;
+    text-align: center;
+    gap: 20px;
+  }
+}

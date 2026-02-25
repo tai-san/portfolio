@@ -1,0 +1,339 @@
+/* 1. 全体設定：黒ベースの高級感 */
+body {
+    font-family: "Hiragino Mincho ProN", "Yu Mincho", serif;
+    background-color: #0d0d0d; /* 漆黒に近い背景 */
+    color: #e0e0e0;           /* 文字は目に優しい薄いグレー */
+    margin: 0;
+    line-height: 1.8;
+}
+
+/* 2. ロゴ：左上固定と金色の質感 */
+.logo {
+    position: fixed;   /* 常に画面の左上に置く */
+    top: 20px;
+    left: 20px;
+    z-index: 1000;     /* 写真や他の要素より常に上に表示 */
+    margin: 0;
+    font-size: 2.5rem;
+    font-weight: bold;
+    letter-spacing: 0.1em;
+
+    /* 金色のグラデーション（金箔のような質感） */
+    background: linear-gradient(
+        45deg,
+        #b67b03 0%,   
+        #daaf08 45%,  
+        #fee9a0 70%,  
+        #daaf08 85%,  
+        #b67b03 100%  
+    );
+    -webkit-background-clip: text; 
+    -webkit-text-fill-color: transparent;
+    
+    /* 文字の輪郭をはっきりさせる影 */
+    filter: drop-shadow(2px 2px 3px rgba(0, 0, 0, 0.8));
+}
+
+/* 3. ヒーロービジュアル：トップの大きな画像 */
+.hero-visual {
+    height: 100vh;    /* 画面いっぱいの高さに設定 */
+    width: 100%;
+    /* 背景画像に薄く黒を重ねて、中央の文字を見やすくする */
+    background-image: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url('top.jpg');
+    background-size: cover;    /* 画面に合わせて画像を伸縮 */
+    background-position: center; 
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.sp-only {
+    display: none; /* これでPCでは改行が無効化されます */
+}
+
+.hero-text {
+    color: #fff;
+    font-size: 1.8rem;
+    font-weight: bold;
+    letter-spacing: 0.4em;
+    text-shadow: 2px 2px 10px rgba(0,0,0,1);
+}
+
+/* 4. ナビゲーション：使いやすさと色の統一 */
+nav {
+    background: #1a1a1a;
+    position: sticky;  /* スクロールした時に上部で止まる */
+    top: 0;
+    z-index: 900;
+    border-bottom: 2px solid #a52a2a; /* 赤のライン */
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    margin: 0;
+    padding: 15px;
+}
+
+nav a {
+    color: #daaf08; /* メニュー文字も金にする */
+    text-decoration: none;
+    padding: 0 20px;
+    font-weight: bold;
+    font-size: 0.9rem;
+}
+
+/* 5. メインコンテンツと見出し */
+main {
+    max-width: 900px;
+    margin: 60px auto;
+    padding: 0 20px;
+}
+
+h2 {
+    color: #daaf08; /* 金色の見出し */
+    text-align: center;
+    border-bottom: 2px solid #a52a2a; /* 赤のアクセント */
+    display: block;
+    padding-bottom: 10px;
+    margin-bottom: 30px;
+    font-size: 2rem;
+}
+
+/* 6. お品書きセクション：左右レイアウト */
+.menu-container {
+    display: flex;
+    align-items: flex-start; /* 上揃え */
+    gap: 40px;              /* 画像とメニューの間の余白 */
+    margin-top: 30px;
+}
+
+.menu-image {
+    flex: 1;                /* 画像の幅 */
+}
+
+.menu-image img {
+    width: 100%;
+    height: auto;
+    /* 漆器のような赤色の影をずらして配置 */
+    box-shadow: 10px 10px 0px #a52a2a; 
+}
+
+.menu-grid {
+    flex: 1.2;              /* メニューリストの幅を少し広めに */
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.menu-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    border-bottom: 1px dotted #555; /* 上品な点線の区切り */
+    padding-bottom: 8px;
+    font-size: 1.1rem;
+}
+
+.price {
+    color: white;           /* 金色の中でのアクセントとして白を採用 */
+    font-weight: bold;
+}
+
+/* こだわりセクション全体のコンテナ */
+.kodawari-container {
+    display: flex;
+    align-items: center; /* 画像と文章の上下中央を揃える */
+    gap: 50px;           /* 文字と画像の間の余白 */
+    margin-top: 60px;
+    margin-bottom: 60px;
+}
+
+/* 左側：文章の設定 */
+.kodawari-text {
+    flex: 1;
+    text-align: right;   /* 文字を右寄せにして画像に近づける */
+}
+
+.kodawari-text p {
+    font-size: 1.2rem;
+    line-height: 2.5;    /* 行間を広げてゆったりと読ませる */
+    letter-spacing: 0.1em;
+}
+
+/* 右側：画像の設定（お品書きのスタイルを再利用） */
+/* menu-image クラスをそのまま使うことで、赤い影のデザインが統一されます */
+
+/* アクセスセクション全体のレイアウト */
+.access-container {
+    display: flex;
+    gap: 40px;
+    margin-top: 40px;
+}
+
+/* 左側：マップの設定 */
+.access-map {
+    flex: 1;
+    min-height: 300px;
+}
+
+.map-placeholder {
+    width: 100%;
+    height: 100%;
+    background-color: #1a1a1a;
+    border: 1px solid #333;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #555;
+}
+
+/* 右側：店舗情報の詳細（定義リスト dl を整える） */
+.access-info {
+    flex: 1;
+}
+
+.access-info dl {
+    margin: 0;
+}
+
+.access-info dt {
+    color: #daaf08; /* 金色の項目名 */
+    font-weight: bold;
+    border-left: 3px solid #a52a2a; /* 赤のアクセント線 */
+    padding-left: 10px;
+    margin-bottom: 5px;
+}
+
+.access-info dd {
+    margin: 0 0 20px 0;
+    padding-left: 15px;
+}
+
+.tel {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #fff;
+}
+
+/* 予約ボタン（漆色の赤と金枠） */
+.btn-reserve {
+    display: inline-block;
+    background-color: #8b0000;
+    color: #fff;
+    padding: 15px 30px;
+    text-decoration: none;
+    transition: 0.3s;
+    font-weight: bold;
+    margin-top: 10px;
+}
+
+.btn-reserve:hover {
+    background-color: #daaf08;
+    color: #0d0d0d;
+}
+
+footer {
+    color: #daaf08;
+    border-top: 2px solid #a52a2a; 
+    padding: 40px 0; /* 上下にゆとりを */
+    text-align: center; /* 文字を真ん中に */
+    margin-top: 60px;
+    font-size: 0.9rem;
+    letter-spacing: 0.1em;
+}
+
+/* --- レスポンシブ設定（画面幅768px以下の場合） --- */
+@media (max-width: 768px) {
+    
+    /* 1. 全体・ロゴ・ヒーロー */
+    .logo {
+        font-size: 1.8rem;
+        top: 15px;
+        left: 15px;
+    }
+
+    .sp-only {
+        display: block; /* スマホのみ改行有効 */
+    }
+
+    .hero-text {
+        font-size: 1.2rem;
+        padding: 0 20px;
+        text-align: center;
+        line-height: 1.8;
+    }
+
+    /* 2. ナビゲーション（回り込み許可） */
+    nav ul {
+        padding: 10px 5px;
+        flex-wrap: wrap; 
+    }
+    nav a {
+        padding: 5px 10px;
+        font-size: 0.8rem;
+    }
+
+    /* 3. メインレイアウト（縦並び＆中央揃え） */
+    main {
+        margin: 30px auto;
+    }
+
+    main section {
+        margin-bottom: 100px !important; /* セクション間の余白をガッツリ確保 */
+        padding-top: 20px;
+    }
+
+    main section:last-child {
+        margin-bottom: 40px !important;
+    }
+
+    h2 {
+        font-size: 1.6rem;
+        margin-bottom: 50px; /* 見出しの下も広く */
+    }
+
+    .menu-container, 
+    .kodawari-container, 
+    .access-container {
+        flex-direction: column;
+        align-items: center; 
+        gap: 40px; /* 画像と文字の間の隙間 */
+    }
+
+    /* 4. お品書き（中央寄せのリスト） */
+    .menu-grid {
+        width: 100%;
+    }
+
+    .menu-item {
+        display: flex;
+        justify-content: center; 
+        gap: 20px; 
+        border-bottom: 1px dotted #555;
+        padding: 12px 0;
+        text-align: center;
+    }
+
+    /* 5. こだわり（画像を上、文字を下に反転） */
+    .kodawari-container {
+        flex-direction: column-reverse; 
+    }
+
+    .kodawari-text {
+        text-align: center;
+        padding: 0 10px;
+    }
+
+    .kodawari-text p {
+        font-size: 1.1rem;
+        line-height: 2.2;
+    }
+
+    /* 6. アクセス（マップの調整） */
+    .access-map {
+        min-height: 250px;
+        width: 100%;
+    }
+}
